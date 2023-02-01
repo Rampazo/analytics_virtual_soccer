@@ -1,0 +1,26 @@
+body {
+    background-color: #202124;
+    color: white;
+}
+
+body header {
+    width: 100%;
+    display: flex;
+}
+
+.header-line {
+    background-color: #FF9915;
+    height: 40px;
+    margin: 10px;
+}
+
+#logo {
+    background-color: #FFFFFF;
+    width: 10%;
+    min-width: 150px;
+    height: 40px;
+}
+
+#select-cup {
+    background-color: #E68A12;
+}

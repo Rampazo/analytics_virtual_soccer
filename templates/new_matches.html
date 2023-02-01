@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matches Table</title>
+
+    <link rel="stylesheet" href="{{ url_for('source', path='css/bootstrap.mim.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('source', path='css/styles.css')}}"/>
+</head>
+<body>
+    <header>
+        <div class="header-line w-100">
+            <div id="logo" class="float-start">
+
+            </div>
+            <div id="cup-selection" class="h-100 w-50 float-end position-relative">
+                <div id="cup-buttons" class="position-absolute top-50 start-50 translate-middle">
+                    <a href="/matches/euro_cup"><button type="button" class="btn btn-dark">Euro Cup</button></a>
+                    <a href="/matches/premiership"><button type="button" class="btn btn-dark">Premiership</button></a>
+                    <a href="/matches/world_cup2"><button type="button" class="btn btn-dark">World Cup</button></a>
+                </div>
+<!--                <select name="cups" id="select-cup" class="form-select w-50 position-absolute top-50 start-50 translate-middle">-->
+<!--                    <option value="eurocup">Euro Cup</option>-->
+<!--                    <option value="premiership">Premiership</option>-->
+<!--                    <option value="worldcup">World Cup</option>-->
+<!--                </select>-->
+            </div>
+
+        </div>
+    </header>
+</body>
+</html>

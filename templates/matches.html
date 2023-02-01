@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Table Matches</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="{{ url_for('source', path='css/bootstrap.mim.css') }}"/>
+	<style>
+
+		body {
+			background-color: #202124;
+			color: white;
+		}
+
+		.menu {
+			margin-left: auto;
+    		margin-right: auto;
+    		width: 40%;
+		}
+
+		.green-class {
+		  background-color: #00FF79;
+		}
+
+		.red-class {
+		  background-color: #FA5460;
+		}
+
+		.yellow-class {
+		  background-color: #1CAAD9;
+		}
+
+		.styled-table {
+			border-collapse: collapse;
+			margin-left: auto;
+    		margin-right: auto;
+			font-size: 1.2em;
+			font-family: sans-serif;
+			min-width: 200px;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+		}
+
+		.styled-table thead tr {
+			background-color: #009879;
+			color: #ffffff;
+			text-align: left;
+		}
+
+		.styled-table th,
+		.styled-table td {
+			padding: 0px 5px;
+			text-align: center;
+			border-left: 1px solid #000000;
+		}
+
+		.styled-table tbody tr {
+<!--			border-bottom: 1px solid #dddddd;-->
+		}
+
+		.styled-table tbody tr:nth-of-type(even) {
+<!--			background-color: #3c4043;-->
+		}
+
+		.styled-table tbody tr:last-of-type {
+			border-bottom: 2px solid #009879;
+		}
+
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #f9f9f9;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		}
+
+		.dropdown-content a {
+			float: none;
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			text-align: left;
+		}
+
+		.dropdown-content a:hover {
+			background-color: #ddd;
+		}
+
+		.dropdown:hover .dropdown-content {
+			display: block;
+		}
+    </style>
+	<script>
+    </script>
+</head>
+<body>
+	<div class="header">
+<!--		<div class="dropdown-content">-->
+<!--			<a href="/matches/euro_cup">Euro Cup</a>-->
+<!--			<a href="/matches/premiership">Premiership</a>-->
+<!--			<a href="/matches/super_league">Super League</a>-->
+<!--			<a href="/matches/world_cup">World Cup</a>-->
+<!--		</div>-->
+		<div class="menu">
+			<a href="/matches/euro_cup"><button type="button" class="btn btn-dark">Euro Cup</button></a>
+			<a href="/matches/premiership"><button type="button" class="btn btn-dark">Premiership</button></a>
+			<a href="/matches/super_league"><button type="button" class="btn btn-dark">Super League</button></a>
+			<a href="/matches/world_cup"><button type="button" class="btn btn-dark">World Cup</button></a>
+		</div>
+	</div>
+	<div class="fixTableHead">
+	<table class="styled-table">
+  		<thead>
+    		<tr>
+				<th>Cup</th>
+				<th>Match Time</th>
+				<th>Result</th>
+				<th>TGoals</th>
+				<th>Winner</th>
+				<th>Both Score</th>
+				<th>Under 0.5 ↓</th>
+				<th>Under 1.5 ↓</th>
+				<th>Over 2.5 ↑</th>
+				<th>Over 3.5 ↑</th>
+				<th>Over 4.5 ↑</th>
+				<th>Over 5.5 ↑</th>
+			</tr>
+  		</thead>
+  		<tbody>
+			{% for match in matches %}
+				<tr>
+					<td>{{match.cup}}</td>
+					<td>{{match.match_time}}</td>
+					<td>{{match.result_ft}}</td>
+					<td>{{match.total_goals_ft}}</td>
+					<td>{{match.winner_ft}}</td>
+					<td>{{match.both_score_ft}}</td>
+					<td>{{match.under_0_5_ft}}</td>
+					<td>{{match.under_1_5_ft}}</td>
+					<td>{{match.over_2_5_ft}}</td>
+					<td>{{match.over_3_5_ft}}</td>
+					<td>{{match.over_4_5_ft}}</td>
+					<td>{{match.over_5_5_ft}}</td>
+<!--					{% if match.winner_ft == '●' %}-->
+<!--						<td class="green-class">{{match.winner_ft}}</td>-->
+<!--					{% elif match.winner_ft == '○' %}-->
+<!--						<td class="red-class">{{match.winner_ft}}</td>-->
+<!--					{% else %}-->
+<!--						<td class="yellow-class">{{match.winner_ft}}</td>-->
+<!--					{% endif %}-->
+<!--					{% if match.both_score_ft == '●' %}-->
+<!--						<td class="green-class">{{match.both_score_ft}}</td>-->
+<!--					{% else %}-->
+<!--						<td class="red-class">{{match.both_score_ft}}</td>-->
+<!--					{% endif %}-->
+<!--					{% if match.under_0_5_ft == '●' %}-->
+<!--						<td class="green-class">{{match.under_0_5_ft}}</td>-->
+<!--					{% else %}-->
+<!--						<td class="red-class">{{match.under_0_5_ft}}</td>-->
+<!--					{% endif %}-->
+<!--					{% if match.under_1_5_ft == '●' %}-->
+<!--						<td class="green-class">{{match.under_1_5_ft}}</td>-->
+<!--					{% else %}-->
+<!--						<td class="red-class">{{match.under_1_5_ft}}</td>-->
+<!--					{% endif %}-->
+<!--					{% if match.over_2_5_ft == '●' %}-->
+<!--						<td class="green-class">{{match.over_2_5_ft}}</td>-->
+<!--					{% else %}-->
+<!--						<td class="red-class">{{match.over_2_5_ft}}</td>-->
+<!--					{% endif %}-->
+<!--					{% if match.over_3_5_ft == '●' %}-->
+<!--						<td class="green-class">{{match.over_3_5_ft}}</td>-->
+<!--					{% else %}-->
+<!--						<td class="red-class">{{match.over_3_5_ft}}</td>-->
+<!--					{% endif %}-->
+<!--					{% if match.over_4_5_ft == '●' %}-->
+<!--						<td class="green-class">{{match.over_4_5_ft}}</td>-->
+<!--					{% else %}-->
+<!--						<td class="red-class">{{match.over_4_5_ft}}</td>-->
+<!--					{% endif %}-->
+<!--					{% if match.over_5_5_ft == '●' %}-->
+<!--						<td class="green-class">{{match.over_5_5_ft}}</td>-->
+<!--					{% else %}-->
+<!--						<td class="red-class">{{match.over_5_5_ft}}</td>-->
+<!--					{% endif %}-->
+				</tr>
+			{% endfor %}
+  		</tbody>
+	</table>
+		</div>
+</body>
+</html>
